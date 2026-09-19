@@ -1,0 +1,6 @@
+# Python dependencies for Northstar Hospital Portal
+# No external dependencies required - uses only Python standard library
+# The application uses:
+# - http.server (built-in)
+# - sqlite3 (built-in)
+# - csv, json, os, sys, uuid, datetime, urllib (all built-in)
