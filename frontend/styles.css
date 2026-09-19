@@ -1,0 +1,354 @@
+/* =========================================================
+   Northstar Hospital Portal — Styles
+   ========================================================= */
+
+/* ── Design tokens ── */
+:root{
+  --n:#0c2635;--i:#19333f;--m:#647984;--l:#d9e5e7;
+  --t:#078981;--bg:#f4f7f7;
+  --danger:#c95d54;--warn:#ce916b;--success:#19a294;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--i);font:14px 'DM Sans',Arial}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+/* ── Toast notifications ── */
+.toast-wrap{
+  position:fixed;bottom:24px;right:24px;z-index:9999;
+  display:flex;flex-direction:column;gap:10px;pointer-events:none;
+}
+.toast{
+  background:#1e3c4a;color:#e8f4f3;padding:13px 18px;
+  border-radius:8px;font-size:13px;font-weight:600;
+  box-shadow:0 4px 18px #0004;
+  transform:translateX(110%);opacity:0;
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1),opacity .25s;
+  pointer-events:auto;max-width:340px;line-height:1.45;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.toast.show{transform:translateX(0);opacity:1}
+.toast.success{border-left:4px solid #19a294}
+.toast.error  {border-left:4px solid #c95d54}
+.toast.info   {border-left:4px solid #ce916b}
+.toast-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* ── Login page ── */
+.login{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr}
+.art{background:linear-gradient(145deg,#092534,#125c60);color:white;padding:52px 8%;position:relative;overflow:hidden}
+.art:after{content:'+';position:absolute;right:-100px;bottom:-170px;font:500px Arial;color:#ffffff0d}
+.brand{font-size:22px;font-weight:700;display:flex;gap:10px;align-items:center}
+.mark{width:30px;height:30px;border-radius:8px;background:#36a99f;display:grid;place-items:center;font:23px Georgia}
+.art h1{font:700 49px/1.1 'Playfair Display';max-width:480px;margin:135px 0 22px}
+.art p{color:#c0d6d8;line-height:1.7;font-size:16px;max-width:450px}
+.trust{display:flex;gap:35px;margin-top:62px}
+.trust b{display:block;font-size:21px}
+.trust span{font-size:11px;color:#9ebdc1;letter-spacing:.5px}
+.loginform{max-width:420px;width:80%;margin:auto}
+.loginform h2{font:700 32px 'Playfair Display';margin:35px 0 8px}
+.sub,.intro{color:var(--m);line-height:1.55}
+.roles{display:flex;background:#eef4f4;border-radius:7px;padding:4px;margin:26px 0}
+.roles button{flex:1;padding:9px;border:0;background:transparent;color:#61767c;font-weight:700;border-radius:5px}
+.roles .on{background:#fff;color:var(--t);box-shadow:0 1px 4px #2d53521c}
+.field{display:block;color:#3e5760;font-weight:700;font-size:12px;margin:15px 0}
+.field input{display:block;width:100%;margin-top:7px;border:1px solid #cbdadd;border-radius:6px;padding:12px}
+.primary{border:1px solid var(--t);background:var(--t);color:white;padding:11px 17px;border-radius:6px;font-weight:700}
+.loginbtn{width:100%;margin-top:10px}
+.hint{font-size:11px;color:#82949a;text-align:center;margin-top:20px}
+
+/* ── Shell / sidebar ── */
+.shell{display:flex;min-height:100vh}
+.side{width:250px;flex:0 0 250px;background:var(--n);color:#c8d7da;padding:23px 16px;display:flex;flex-direction:column}
+.hospital{font-size:10px;line-height:1.7;letter-spacing:1px;color:#8facb1;margin:29px 8px 15px}
+.hospital small{font-size:9px;color:#6e8992}
+.group{font-size:10px;color:#718d97;letter-spacing:1px;margin:19px 9px 7px}
+.nav{border:0;background:transparent;color:#c5d4d8;width:100%;text-align:left;padding:10px;border-radius:6px;margin:1px 0;display:flex;gap:11px;align-items:center}
+.nav span{width:19px;font-size:17px;color:#8eb2b7}
+.nav.on{background:#174555;color:#fff}
+.nav.on span{color:#54d4c7}
+.logout-btn{background:transparent;border:1px solid #3a5a66;color:#9ab8be;padding:5px 8px;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;margin-left:auto;transition:all .15s}
+.logout-btn:hover{background:#c95d54;border-color:#c95d54;color:white}
+.logout-top-btn{background:transparent;border:1px solid #dce8e8;color:#7a8f95;padding:6px 12px;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;transition:all .15s}
+.logout-top-btn:hover{background:#c95d54;border-color:#c95d54;color:white}
+.profile{margin-top:auto;border-top:1px solid #294550;padding:17px 7px 0;display:flex;align-items:center;gap:9px}
+.avatar{border-radius:50%;width:35px;height:35px;display:grid;place-items:center;color:white;background:#ce916b;font-size:11px;font-weight:700}
+.profile small{display:block;color:#8ea7ad;font-size:10px;margin-top:2px}
+.profile b{font-size:12px;color:white}
+.main{width:calc(100% - 250px)}
+.top{height:67px;border-bottom:1px solid var(--l);background:white;display:flex;align-items:center;justify-content:space-between;padding:0 37px}
+.crumb{font-size:13px;color:#758991}
+.crumb b{color:#3d5660}
+.body{padding:31px 38px;max-width:1450px}
+.ey{font-size:10px;letter-spacing:1.2px;font-weight:700;color:#71868e;margin:0 0 7px}
+.title{font:700 30px 'Playfair Display';margin:0 0 5px}
+
+/* ── Hero banner ── */
+.hero{background:linear-gradient(100deg,#f2faf8,#fff);border:1px solid #dce9e8;border-radius:11px;padding:24px 28px;display:flex;align-items:center;margin-bottom:24px}
+.hero h2,h2{font:700 22px 'Playfair Display';margin:0 0 7px}
+.hero .primary{margin-left:auto}
+
+/* ── Cards / grid ── */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:#fff;border:1px solid var(--l);border-radius:9px;padding:19px}
+.metric b{font:700 29px 'Playfair Display';display:block}
+.metric small{color:#758990;font-size:10px;letter-spacing:.7px;font-weight:700}
+.metric em{font-size:10px;font-style:normal;color:#188d6f}
+.head{margin:30px 0 13px;display:flex;justify-content:space-between;align-items:end}
+.head h2{margin:0}
+.link{border:0;background:transparent;color:var(--t);font-weight:700}
+.two,.split{display:grid;grid-template-columns:1.45fr 1fr;gap:17px}
+
+/* ── Table ── */
+.tablecard{padding:0;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;background:#f7faf9;color:#758890;font-size:10px;letter-spacing:.6px;padding:13px 18px}
+td{padding:15px 18px;border-top:1px solid #e2eaeb;font-size:12px}
+td small{display:block;color:#84969d;font-size:10px;margin-top:3px}
+.badge{font-size:10px;font-weight:700;padding:4px 7px;border-radius:10px;background:#e4f3ea;color:#397c55}
+.amber{background:#fbefda;color:#9a671c}
+
+/* ── Timeline ── */
+.timeline{padding-left:19px;border-left:1px solid #cce0df;margin:20px 0 2px}
+.event{position:relative;padding:0 0 17px 15px}
+.event:before{content:'';position:absolute;width:9px;height:9px;border:3px solid #daf1ed;background:#15958b;border-radius:50%;left:-24px;top:2px}
+.event b{font-size:12px}
+.event p{font-size:11px;color:#738790;margin:3px 0}
+.event small{color:#99a8ad}
+
+/* ── Quick buttons ── */
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.quick button{border:1px solid #d6e4e4;background:#f7fbfa;text-align:left;padding:12px;border-radius:7px;color:#34535e;font-weight:700}
+.quick span{display:block;font-size:10px;color:#7d9198;font-weight:400;margin-top:3px}
+
+/* ── Tabs ── */
+.tabs{display:flex;gap:21px;border-bottom:1px solid var(--l);margin-top:23px}
+.tab{background:transparent;border:0;padding:0 0 12px;color:#677c85;font-weight:700}
+.tab.on{color:var(--t);border-bottom:3px solid var(--t)}
+.toolbar{display:flex;gap:10px;margin:22px 0}
+.toolbar input,.toolbar select{border:1px solid #cfdddf;background:white;border-radius:6px;padding:10px}
+.toolbar input{min-width:280px}
+.panel{display:none}
+.panel.on{display:block}
+
+/* ── Bills ── */
+.bill{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #e5eeee}
+.bill:last-child{border:0}
+.bill small{display:block;color:#788b92;margin-top:3px}
+.money{font-weight:700}
+
+/* ── Grids (services / doctors / milestones) ── */
+.programs,.services,.doctors,.milestones{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.program h2{font:700 20px 'Playfair Display';margin:8px 0}
+.program p,.services p,.doctors p,.milestones p{color:#637781;line-height:1.5;font-size:12px}
+.program div{border-top:1px solid #e0ebeb;padding-top:12px;font-size:11px;display:flex;justify-content:space-between}
+.bar{height:7px;background:#e4eeee;border-radius:8px;margin:9px 0}
+.bar i{display:block;height:100%;background:#19a294;border-radius:8px}
+.danger{border-left:4px solid #c95d54}
+.danger h3{color:#a44740}
+.doctors h3,.services h3,.milestones h3{margin:6px 0;font-size:15px}
+.milestones b{font:700 38px 'Playfair Display';color:#128d83}
+.note{background:#f0f8f6;border:1px solid #d4ebe6;padding:12px;border-radius:7px;color:#496965;font-size:12px;margin:16px 0}
+.hide{display:none!important}
+
+/* ── Rehab assessment layout ── */
+.click-row{cursor:pointer}
+.click-row:hover td{background:#f3faf8}
+.assess-layout{display:grid;grid-template-columns:1fr 1.15fr;gap:17px;margin-top:22px}
+.chart-wrap{height:320px;position:relative;margin-top:12px}
+.assess-form .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.assess-form textarea{display:block;width:100%;margin-top:7px;border:1px solid #cbdadd;border-radius:6px;padding:12px;resize:vertical}
+.assess-form .primary{margin-top:8px}
+.chart-card h2{margin-bottom:4px}
+
+/* ── Exercise prescription card ── */
+.rx-card{border-radius:9px;padding:17px 19px;margin-top:14px;border:1px solid}
+.rx-card.lvl1{background:#fff5f4;border-color:#f4c0bb;color:#7a3530}
+.rx-card.lvl2{background:#fef9ec;border-color:#f0d98a;color:#6b5010}
+.rx-card.lvl3{background:#f0fbf7;border-color:#9adece;color:#175c4a}
+.rx-badge{display:inline-block;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.6px;margin-bottom:8px}
+.rx-card.lvl1 .rx-badge{background:#fde8e6;color:#9b3028}
+.rx-card.lvl2 .rx-badge{background:#fdf0c2;color:#7a5e0c}
+.rx-card.lvl3 .rx-badge{background:#d4f5e9;color:#1a6b4a}
+.rx-card h3{margin:0 0 6px;font-size:14px}
+.rx-list{margin:7px 0 0;padding-left:18px;font-size:12px;line-height:2}
+.score-row{display:flex;align-items:center;gap:10px;font-size:12px;margin-top:10px;color:inherit;opacity:.8}
+.score-bar{flex:1;height:5px;background:#00000010;border-radius:4px}
+.score-bar i{display:block;height:100%;border-radius:4px;background:currentColor}
+
+/* ── Telemetry / GPU simulator ── */
+.tele-intro{color:var(--m);font-size:13px;margin:14px 0 18px;line-height:1.6}
+.gpu-presets{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.gpu-btn{border:1px solid #ccdde0;background:#f5fafa;color:#3a5760;padding:9px 16px;border-radius:7px;font-weight:700;font-size:12px;transition:all .18s}
+.gpu-btn:hover{border-color:var(--t);color:var(--t)}
+.gpu-btn.active{background:var(--t);color:white;border-color:var(--t)}
+.tele-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.tele-metric{background:#fff;border:1px solid var(--l);border-radius:8px;padding:14px}
+.tele-metric small{font-size:10px;letter-spacing:.7px;font-weight:700;color:#7a8f95}
+.tele-metric b{font:700 24px 'Playfair Display';display:block;margin:4px 0 2px}
+.tele-metric em{font-size:10px;color:#5a9490;font-style:normal}
+.tele-metric.alert-red b{color:#c95d54}
+.tele-metric.alert-red em{color:#c95d54}
+.tele-result{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tele-field{background:#fff;border:1px solid var(--l);border-radius:8px;padding:14px}
+.tele-field label{font-size:10px;letter-spacing:.7px;font-weight:700;color:#7a8f95;display:block;margin-bottom:6px}
+.tele-field p{margin:0;font-size:12px;line-height:1.5}
+.cfnr-alert{background:#fff0ee;border:1px solid #f4b8b3;border-radius:8px;padding:14px 17px;display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.cfnr-alert .icon{font-size:22px;flex-shrink:0}
+.cfnr-alert h4{margin:0 0 4px;color:#9b2f28;font-size:14px}
+.cfnr-alert p{margin:0;font-size:12px;color:#8b3530;line-height:1.5}
+.tele-latency{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.lat-box{background:#f5fafa;border:1px solid #d8eaea;border-radius:7px;padding:11px;text-align:center}
+.lat-box small{font-size:10px;color:#6a8690;font-weight:700;letter-spacing:.5px;display:block;margin-bottom:4px}
+.lat-box b{font:700 18px 'Playfair Display';color:#124050}
+.lat-box.total{background:#eaf7f5;border-color:#9accc6}
+.lat-box.total b{color:#0a5c55}
+
+/* ── Analytics dashboard ── */
+.analytics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:18px 0}
+.analytics-chart{background:#fff;border:1px solid var(--l);border-radius:9px;padding:19px;margin-top:17px}
+.analytics-chart h2{font:700 18px 'Playfair Display';margin:0 0 4px}
+.analytics-chart .intro{margin-bottom:14px}
+.chart-tall{height:280px;position:relative}
+.pain-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #edf3f3;font-size:12px}
+.pain-row:last-child{border:0}
+.pain-name{width:130px;font-weight:600;flex-shrink:0}
+.pain-bar{flex:1;height:6px;background:#e8f0f0;border-radius:4px}
+.pain-bar i{display:block;height:100%;border-radius:4px;background:#c95d54}
+.pain-val{width:30px;text-align:right;font-weight:700;color:#c95d54}
+
+/* ── Export button ── */
+.btn-export{border:1px solid #ccdde0;background:#f5fafa;color:#3a5760;padding:8px 14px;border-radius:6px;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.btn-export:hover{border-color:var(--t);color:var(--t)}
+
+/* ── Semantic extraction panel ── */
+.sem-panel{background:#fff;border:1px solid var(--l);border-radius:10px;padding:20px;margin-top:16px}
+.sem-alert{background:#fff0ee;border:1px solid #f4b8b3;border-radius:8px;padding:13px 16px;display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.sem-alert-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.sem-alert b{display:block;color:#9b2f28;font-size:13px;margin-bottom:4px}
+.sem-alert p{margin:0;font-size:12px;color:#7a2e2a;line-height:1.5}
+.sem-alert code{background:#fde4e2;padding:1px 5px;border-radius:3px;font-size:11px}
+.sem-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.sem-metric{background:#f7fafa;border:1px solid var(--l);border-radius:8px;padding:12px}
+.sem-metric small{font-size:10px;letter-spacing:.7px;font-weight:700;color:#7a8f95;display:block;margin-bottom:3px}
+.sem-metric b{font:700 22px 'Playfair Display';display:block;margin-bottom:2px}
+.sem-metric em{font-size:10px;font-style:normal;color:#5a9490}
+.sem-ok b{color:#0a7a72}
+.sem-ok em{color:#0a7a72}
+.sem-fail b{color:#c95d54}
+.sem-fail em{color:#c95d54}
+.sem-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px}
+.sem-json{background:#0e2535;color:#c8e8e6;font-size:11px;line-height:1.8;padding:14px;border-radius:8px;overflow-x:auto;margin:0;white-space:pre}
+.json-ok{color:#7ee8c8}
+.json-null{color:#7a9298}
+.json-null-critical{color:#f08080;font-weight:700}
+.sem-latency{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
+.sem-lat-box{background:#f5fafa;border:1px solid #d8eaea;border-radius:7px;padding:10px;text-align:center}
+.sem-lat-box small{font-size:10px;color:#6a8690;font-weight:700;letter-spacing:.5px;display:block;margin-bottom:3px}
+.sem-lat-box b{font:700 16px 'Playfair Display';color:#124050}
+.sem-lat-total{background:#eaf7f5;border-color:#9accc6}
+.sem-lat-total b{color:#0a5c55}
+.sem-rule{border-radius:8px;padding:14px;border:1px solid}
+.sem-rule-l1{background:#fff5f4;border-color:#f4c0bb}
+.sem-rule-l2{background:#fef9ec;border-color:#f0d98a}
+.sem-rule-l3{background:#f0fbf7;border-color:#9adece}
+.sem-rule-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.sem-rule-badge{font-size:10px;font-weight:700;letter-spacing:.6px;padding:3px 8px;border-radius:10px;background:#00000010}
+.sem-rule-l1 .sem-rule-badge{background:#fde8e6;color:#9b3028}
+.sem-rule-l2 .sem-rule-badge{background:#fdf0c2;color:#7a5e0c}
+.sem-rule-l3 .sem-rule-badge{background:#d4f5e9;color:#1a6b4a}
+.sem-rule-status{font-size:11px;color:#3d8070;font-weight:600}
+.sem-rule b{font-size:13px;display:block;margin-bottom:5px}
+.sem-rule p{margin:0;font-size:11px;line-height:1.55;opacity:.85}
+.sem-note{background:#f3f9f8;border:1px solid #cde8e4;border-radius:7px;padding:11px;font-size:11px;color:#3a5e5a;line-height:1.55;margin-top:12px}
+@media(max-width:1000px){
+  .sem-metrics{grid-template-columns:repeat(2,1fr)}
+  .sem-body{grid-template-columns:1fr}
+  .sem-latency{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── Skeleton loader ── */
+.skeleton-page{padding:31px 38px}
+.skeleton{background:linear-gradient(90deg,#e4edee 25%,#eff5f5 50%,#e4edee 75%);background-size:400% 100%;animation:shimmer 1.4s ease infinite;border-radius:8px}
+@keyframes shimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.sk-hero{height:110px;margin-bottom:22px}
+.sk-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:22px}
+.sk-card{height:90px}
+.sk-table{height:220px}
+
+/* ── Remarks & progress form ── */
+.remarks-card{background:#fafcfc;border:1px solid #dce8e8;border-radius:10px;padding:20px;margin-top:16px}
+.login-err{background:#fff0ec;border:1px solid #f6c0ba;padding:12px;border-radius:6px;color:#ba291d;font-size:12px;font-weight:600;margin-top:12px}
+.remarks-saved{background:#e7f5f0;border:1px solid #b8e1d5;border-radius:7px;padding:12px 16px;color:#18735b;font-size:12px}
+.remarks-saved b{color:#0f5c48}
+.ql-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.ql-btn{border:1px solid #ccdde0;background:#f0fafa;color:#1a5560;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;transition:background .15s}
+.ql-btn:hover{background:#d6f0ee;border-color:var(--t);color:var(--t)}
+.gpu-mode-info{display:flex;align-items:center;gap:10px;margin:12px 0 16px;padding:10px;background:#f7fafa;border:1px solid #e0eeee;border-radius:6px}
+.gpu-mode-badge{font-size:11px;font-weight:700;padding:4px 8px;background:#e4f3f0;color:#0a7065;border-radius:10px}
+.gpu-badge-mid{background:#fff2d6;color:#8b5e0c}
+.gpu-badge-warn{background:#ffe4e1;color:#c0342a}
+.gpu-assess-btn{margin-top:8px}
+.step2-score-box{background:#f0f8f6;border:1px solid #c8e8e1;border-radius:8px;padding:12px;text-align:center}
+.step2-score-box small{font-size:10px;color:#4a7970;font-weight:700;letter-spacing:.6px;margin-bottom:4px;display:block}
+.step2-score-box b{font:700 24px 'Playfair Display';color:#0a6b5c;display:block;margin-bottom:2px}
+.step2-score-box em{font-size:10px;color:#3a7066;font-style:normal}
+
+/* ── Modal overlay ── */
+.modal-overlay{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(12,38,53,.65);backdrop-filter:blur(3px);
+  z-index:10000;display:flex;align-items:center;justify-content:center;
+  padding:24px;opacity:0;transition:opacity .25s;
+}
+.modal-overlay.show{opacity:1}
+.modal-content{
+  background:#fff;border-radius:12px;max-width:640px;width:100%;
+  box-shadow:0 12px 40px rgba(0,0,0,.2);
+  transform:scale(.92);transition:transform .25s cubic-bezier(.34,1.56,.64,1);
+  max-height:90vh;display:flex;flex-direction:column;
+}
+.modal-overlay.show .modal-content{transform:scale(1)}
+.modal-header{
+  padding:20px 24px;border-bottom:1px solid var(--l);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-header h2{font:700 22px 'Playfair Display';margin:0;color:var(--n)}
+.modal-close{
+  background:transparent;border:0;font-size:24px;color:var(--m);
+  width:32px;height:32px;border-radius:6px;display:grid;place-items:center;
+  transition:background .2s;padding:0;
+}
+.modal-close:hover{background:#f0f4f4}
+.modal-body{
+  padding:24px;overflow-y:auto;flex:1;
+}
+.modal-body .ey{margin-bottom:8px}
+.modal-footer{
+  padding:16px 24px;border-top:1px solid var(--l);
+  display:flex;gap:10px;justify-content:flex-end;
+}
+
+/* ── Responsive ── */
+@media(max-width:1000px){
+  .side{width:210px;flex-basis:210px}
+  .main{width:calc(100% - 210px)}
+  .cards,.analytics-grid,.tele-grid{grid-template-columns:repeat(2,1fr)}
+  .two,.split,.assess-layout,.tele-result{grid-template-columns:1fr}
+  .services,.doctors,.milestones{grid-template-columns:repeat(2,1fr)}
+  .body{padding:24px}
+  .art h1{font-size:38px}
+  .tele-latency{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:680px){
+  .login{grid-template-columns:1fr}
+  .art,.side{display:none}
+  .main{width:100%}
+  .cards,.sk-cards,.analytics-grid,.programs,.services,.doctors,.milestones{grid-template-columns:1fr}
+  .tele-grid,.tele-latency{grid-template-columns:1fr 1fr}
+  .body{padding:18px}
+  .top{padding:0 18px}
+  .hero{display:block}
+  .hero .primary{margin-top:16px}
+  .toolbar{flex-wrap:wrap}
+  .gpu-presets{flex-direction:column}
+}
